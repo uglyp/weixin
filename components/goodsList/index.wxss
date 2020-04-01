@@ -1,0 +1,145 @@
+.page-content {
+  padding-top: 30rpx;
+  background: #F7F7F7;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 31rpx 0 50rpx 0;
+  background: #F7F7F7;
+
+}
+
+.titleSel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: PingFang SC;
+}
+
+.titleactive {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: rgba(33, 34, 38, 1);
+}
+
+.titleUnsel {
+  color: #212226;
+  font-size: 32rpx;
+}
+
+.headerLineSel {
+  background: #5f6fee;
+  height: 6rpx;
+  width: 40rpx;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.headerLineUnsel {
+  height: 6rpx;
+  width: 40rpx;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.swiper {
+  width: 100%;
+  /* height: auto; */
+  /* flex: 1; */
+  overflow-y: scroll;
+  /* background: #FFFFFF; */
+}
+
+.recordItem {
+  background-color: white;
+  padding: 27rpx 20rpx 25rpx 20rpx;
+  margin-bottom: 20px;
+}
+
+.swiper-content {
+  margin: 0 25rpx;
+}
+
+.image-header {
+  width: 83rpx;
+  height: 84rpx;
+  border-radius: 4rpx;
+  margin-right: 23rpx;
+}
+
+.content-image-level-box {
+  width: 83rpx;
+  height: 84rpx;
+  border-radius: 4rpx;
+  position: relative;
+}
+
+.content-item-top {
+  display: flex;
+}
+
+.image-level {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  bottom: 0;
+  right: -10rpx;
+}
+
+.content-item-name {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(230, 126, 15, 1);
+}
+
+.content-item-tag {
+  background: var(--yellowGradation);
+  border-radius: 4rpx;
+  padding: 5rpx 15rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(254, 254, 254, 1);
+  margin-left: 20rpx;
+}
+
+.content-item-dsc {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(136, 136, 136, 1);
+}
+
+.content-item-info {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 20rpx;
+}
+
+.content-item-imgbox {
+  display: flex;
+  justify-self: space-between;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+
+.content-item-img {
+  width: 214rpx;
+  height: 214rpx;
+  margin-top: 9rpx;
+  margin-right: 9rpx;
+}
+.publish-time{
+  padding-top: 25rpx;
+  font-size:26rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+}

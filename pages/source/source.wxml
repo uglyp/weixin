@@ -1,0 +1,16 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class="page-box">
+    <view class="page-top">
+        <view class="index-search" style="color:#999999;">
+            <view class="iconfont icon-search"></view>
+            <input class="input-style-search" bindinput="getInputValue" bindfocus="bindfocus" bindblur="bindblur" value="{{serchKeyWord}}" placeholder=" 搜索品牌名称" />
+            <icon bindtap="clearKeyword" type="clear" size="20" />
+        </view>
+        <label class="search-text" bindtap="toSearch">搜索</label>
+    </view>
+    <view hidden="{{!showList}}">
+        <goodsList id="goodsList" sendList="{{sendList}}"></goodsList>
+        <load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+    </view>
+    <searchPage bindallClick="allClick" searchStorage="{{searchStorage}}" wx:if="{{showHistory}}" bindtoSearchList="toSearchList" bindhistoryDel="historyDel"></searchPage>
+</view>

@@ -1,0 +1,34 @@
+<view class="page-content">
+    <!-- 内容布局 -->
+    <view class="swiper-content">
+      <view class='swiper'>
+        <view>
+          <!-- <scroll-view  style="height: 100%;"> -->
+          <view wx:for="{{sendList}}" wx:key="*this" class='recordItem' data-scouceid="{{item.source_id}}" data-id="{{item.id}}" bindtap="toDetail">
+            <view class="content-item-top">
+              <view class="content-image-level-box">
+                <image class="image-header" src="{{item.avatarUrl}}"></image>
+                <image class="image-level" src="{{updatePath}}test-level.png" mode=""></image>
+              </view>
+              <view style=" padding-left:23rpx;">
+                <view style="display:flex;margin-bottom:10rpx">
+                  <view class="content-item-name">{{item.nickName}}</view>
+                  <view class="content-item-tag">{{item.type_str}}</view>
+                </view>
+                <view class="content-item-dsc">{{item.subject}}</view>
+              </view>
+            </view>
+            <view class="content-item-info">{{item.content}}</view>
+            <view class="content-item-imgbox">
+              <image wx:for="{{item.images}}" wx:key="*this" class="content-item-img" src="{{item}}"></image>
+            </view>
+            <view class="publish-time">
+              <!-- 一天前 -->
+              {{item.publish_time}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+

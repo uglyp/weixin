@@ -1,0 +1,108 @@
+<navbar parameter='{{parameter}}'></navbar>
+<!--货源-->
+<view class='container'>
+  <scroll-view scroll-y>
+    <view class="release-head" style="background-image:url('{{bgImg}}') ;">
+      <view class="icon"><image src="{{userInfo.avatarUrl}}"></image> </view>
+      <view class="user">
+        <view class="name">{{userInfo.nickName}}</view>
+        <view class="mark">{{type==0?'货源':'求购'}}</view>
+      </view>
+    </view>
+    <view class="release-total-form">
+        <view class="item item-line">
+            <input type='text' bindinput='bindSubject' placeholder='请输入主题（必填）' name='title'  value="{{subject}}" placeholder-class='placeholder'class="title" ></input>
+        </view>
+        <view class="item item-line" wx:if="{{!setupTime}}">
+            <view class="label">活动时间</view>
+            <view class="text" bindtap="setupTime"><text>发布即开始，7天后结束</text><text class="iconfont icon-chevron-right"></text></view>
+        </view>
+        <view class="item item-line item-noflex" wx:if="{{setupTime}}">
+            <view class="label">活动时间</view>
+            <view class="timelist">
+              <picker mode="date" value="{{startdate}}" start="{{startdate}}"  bindchange="bindStartDateChange" placeholder-class='picker'>
+                <view class="picker orange">
+                  {{startdate}}
+                </view>
+              </picker>
+              <picker mode="time" value="{{starttime}}" bindchange="bindStartTimeChange" placeholder-class='picker'>
+                <view class="picker orange">
+                  {{starttime}}
+                </view>
+              </picker>
+              <text style="color:#B0B0B0">|</text>
+              <picker mode="date" value="{{enddate}}" start="{{startdate}}"  bindchange="bindEndDateChange" placeholder-class='picker'>
+                <view class="picker orange">
+                  {{enddate}}
+                </view>
+              </picker>
+              <picker mode="time" value="{{endtime}}" bindchange="bindEndTimeChange" placeholder-class='picker'>
+                <view class="picker orange">
+                  {{endtime}}
+                </view>
+              </picker>
+            </view>
+            
+        </view>
+        <view class="item">
+        <textarea bindinput='bindMessage' placeholder-class="textareastyle" value="{{content}}" maxlength='300' placeholder="请输入产品内容" />
+        </view>
+        <view class="item item-line pic">
+            <view class="upload">
+              <view class="pics" wx:for="{{imgs}}" wx:key="index">
+                <image src="{{item}}" data-index="{{index}}"></image>
+                <view class="del" bindtap='delImg'data-index="{{index}}"><text class="iconfont icon-x"></text></view>
+              </view>
+              <view bindtap="uploadImages"class="btn" wx:if="{{isAdd}}"> +
+              </view>
+            </view>
+        </view>
+         <view class="item item-line" wx:if="{{type==0}}">
+          <view class="label largeWidth pay">在线支付</view>
+          <switch color="#FA8C1E" checked="{{if_need_pay}}" bindchange="payChange"/>
+        </view>
+        <view class="item item-line" wx:if="{{type==0}}">
+          <view class="label largeWidth invoice">是否可开发票</view>
+          <switch color="#FA8C1E" checked="{{if_can_invoice}}" bindchange="invoiceChange"/>
+        </view>
+    </view>
+    <view class="release-title">
+      <view>填写商品</view>
+    </view>
+    <view class="release-sub-form">
+      <view class="subform" wx:for="{{info}}" wx:key="index">
+        <view class="item item-line">
+          <view class="label">商品名称</view>
+          <input type='text' bindinput="changeInput" placeholder='请输入商品名称' name='product_name' value="{{item.product_name}}" placeholder-class='placeholder' data-index="{{index}}" data-field="product_name"></input>
+        </view>
+        <view class="item item-line">
+          <view class="label">规格</view>
+          <input type='text' bindinput="changeInput" placeholder='尺寸、颜色等' name='standards' value="{{item.standards}}" placeholder-class='placeholder'data-index="{{index}}" data-field="standards"></input>
+        </view>
+        <view class="item item-line" wx:if="{{type==0}}">
+          <view class="label">价格（¥）</view>
+          <input type='digit' bindinput="changeInput" bindblur="inputBlur"maxlength='{{maxlength}}' placeholder='0.00' name='price' value="{{item.price}}" placeholder-class='placeholder' data-index="{{index}}" data-field="price"></input>
+        </view>
+        <view class="item item-line" wx:if="{{type==0}}">
+          <view class="label">库存</view>
+          <input type='number' bindinput="changeInput" bindblur="inputBlur"placeholder='不限' name='stock' value="{{item.stock}}" placeholder-class='placeholder' data-index="{{index}}" data-field="stock"></input>
+        </view>
+        <view class="item item-line" wx:if="{{type==0}}">
+          <view class="label largeWidth">单人最多购买数</view>
+          <input type='number' bindinput="changeInput" bindblur="inputBlur"placeholder='不得大于库存数' name='purchase_limit_amount' value="{{item.purchase_limit_amount}}" placeholder-class='placeholder' data-index="{{index}}" data-field="purchase_limit_amount"></input>
+        </view>
+        <view class="del-only" data-index="{{index}}" bindtap="delItem">
+          <text class="iconfont icon-trash-2"></text>
+        </view>
+      </view>
+      <view class="addform" bindtap="addItem">
+        <text>+添加新商品</text>
+      </view>
+    </view>
+    <view class="submit">
+      <button size="default" bindtap="submit" wx:if="{{phoneNumber}}" >立即发布</button>
+      <button size="default"open-type="getPhoneNumber"bindgetphonenumber="getPhoneNumber" wx:else>立即发布</button>
+    </view>
+  </scroll-view>
+  
+</view>

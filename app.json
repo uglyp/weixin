@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/source/source",
+    "pages/release/release",
+    "pages/releaseDetail/releaseDetail",
+    "pages/buy/buy",
+    "pages/user/user",
+    "pages/search/search",
+    "pages/searchList/searchList",
+    "pages/mysource/mysource",
+    "pages/mycollect/mycollect",
+    "pages/myorder/myorder",
+    "pages/log/log",
+    "pages/product/product",
+    "pages/order/order",
+    "components/navbar/index",
+    "components/productConSwiper/index",
+    "pages/orderStatus/orderStatus",
+    "pages/orderDetails/orderDetails",
+    "pages/feedBack/feedBack",
+    "pages/orderAdministration/orderAdministration",
+    "pages/myAskToBuy/myAskToBuy"
+    
+  ],
+  "usingComponents": {
+    "load-more": "../../components/load-more/index"
+  },
+  "enablePullDownRefresh": true,
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 50,
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#333",
+    "selectedColor": "#FA8C1E",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/1-001.png",
+        "selectedIconPath": "images/1-002.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/source/source",
+        "iconPath": "images/3-001.png",
+        "selectedIconPath": "images/3-002.png",
+        "text": "货源"
+      },
+      {
+        "pagePath": "pages/release/release",
+        "iconPath": "images/5-002.png",
+        "selectedIconPath": "images/5-002.png",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/buy/buy",
+        "iconPath": "images/2-001.png",
+        "selectedIconPath": "images/2-002.png",
+        "text": "求购"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/4-001.png",
+        "selectedIconPath": "images/4-002.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

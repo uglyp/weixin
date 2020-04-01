@@ -1,0 +1,73 @@
+.page-box {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.page-top {
+    padding: 0 33rpx;
+    background: #fff;
+    padding-bottom: 30rpx;
+    display: flex;
+}
+
+.index-search {
+    background: #f7f7f9;
+    height: 74rpx;
+    padding: 0 31rpx;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.input-style-search{
+    height: 100%;
+    flex: 1;
+}
+.search-text{
+    font-size:32rpx;
+    font-family:PingFang SC;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    line-height:74rpx;
+    margin-left: 24rpx;
+}
+
+
+
+.title {
+    width: 400rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+    background:#EDEDEE ;
+    font-size:28rpx;
+    font-family:PingFang SC;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    border-radius:10rpx;
+    margin-bottom: 35rpx;
+}
+
+.titleSel {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    font-family: PingFang SC;
+}
+
+.titleactive {
+    background:rgba(255,255,255,1);
+    box-shadow:0px 4rpx 8rpx 0rpx rgba(165, 165, 165, 0.35);
+    border-radius:10rpx;
+    padding: 18rpx 65rpx;
+    margin: 4rpx;
+
+}
+
+.titleUnsel {
+    padding: 18rpx 65rpx;
+    margin: 4rpx;
+
+}
+

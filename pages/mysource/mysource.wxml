@@ -1,0 +1,9 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class="page-box">
+    <!-- <view class="page-top">
+        <input class="index-search" bindinput="getInputValue" placeholder-class="iconfont icon-search" value="{{searchKeyword}}" placeholder=" 搜索品牌名称" />
+        <label class="search-text" bindtap="toSearch">搜索</label>
+    </view> -->
+    <goodsList id="goodsList"  sendList="{{sendList}}"></goodsList>
+    <load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+</view>

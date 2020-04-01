@@ -1,0 +1,28 @@
+@import '/font/iconfont.wxss';
+@import '/color/color.wxss';
+.acea-row{display: flex;flex-wrap: wrap}
+.acea-row.row-middle{align-items: center}
+.navbar{position:fixed;top:0;left:0;z-index:999;width:100%;}
+.navbar.bgcolor{background-color: #fff}
+.navbar.on{background-color:#e5eaea;}
+.navbar.black{background-color:#232323;}
+.navbar.gray{background-color:#666;}
+.navbar .navbarH{position:relative;}
+.navbar .navbarH .navbarCon{position:absolute;bottom:0;height:100rpx;width:100%;align-items:center;}
+.navbar .navbarH .navbarCon .name{color:#000;font-size:36rpx;font-weight:bold;width: 300rpx;text-align: center;}
+.navbar .navbarH .navbarCon .name.on{color:#fff;}
+.navbar .navbarH .navbarCon .icon-chevron-left{color:#000;font-weight:bold;position:absolute;font-size:46rpx;left:16rpx;width:100rpx;height:56rpx;line-height:56rpx;top:50%;transform:translateY(-50%);}
+.navbar .navbarH .navbarCon .icon-chevron-left.on{color:#fff;}
+.navbar .navbarH .navbarCon .logo{width:246rpx;height:62rpx;position:absolute;left:50%;top:50%;margin-left:-130rpx;transform:translateY(-30%);}
+.navbar .navbarH .navbarCon .logo image{width:100%;display:block;}
+.navbar .navbarH .navbarCon .search{width:64rpx;height:64rpx;padding:0 28rpx;box-sizing:border-box;}
+.navbar .navbarH .navbarCon .search .icon-search{font-size:34rpx;margin-right:16rpx;font-weight: bold}
+.navbar .navbarH .navbarCon .dutyName{ font-size: 36rpx; text-align: center; height: 56rpx; line-height: 50rpx;position:absolute;transform:translateY(-50%); width: 300rpx; top: 50%; font-weight: bold;left: 50%;margin-left: -150rpx}
+.navbar .navbarH .navbarCon .search.notice{ width: auto; padding-left: 20rpx}
+.navbar .navbarH .navbarCon .search .icon-notice{font-size:36rpx;margin-right:16rpx;font-weight: bold}
+
+.line1{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

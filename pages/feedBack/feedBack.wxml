@@ -1,0 +1,41 @@
+<navbar parameter='{{parameter}}'></navbar>
+<!-- 意见反馈 -->
+<view class='container'>
+  <view class="release-total-form">
+    <view class="item">
+      <textarea bindinput='bindMessage' placeholder-class="textareastyle" value="{{content}}" maxlength='{{max}}' placeholder="感谢您对我们的产品提供建议，我们将不断优化体验" />
+      <view class="text-num-limit">
+        <view class="" style="padding-right:55rpx;">{{currentWordNumber}}/{{max}}</view>
+        <view class="">留言至少十个字哦</view>
+      </view>
+      <view class="is-line"></view>
+    </view>
+    <view class="item item-line">
+      <view class="upload">
+        <view class="pics" wx:for="{{imgs}}" wx:key="index">
+          <image src="{{item.pic}}" data-index="{{index}}"></image>
+          <view class="del" bindtap='delImg' data-index="{{index}}">
+            <text class="iconfont icon-x"></text>
+          </view>
+        </view>
+        <view bindtap="uploadImages" class="btn">+</view>
+      </view>
+      <view class=" img-num-limit">可上传9张图片，每张大小不超过2M，支持jpg，png</view>
+    </view>
+    <view class="item">
+      <view class="tel-way">联系方式（请至少填写一项联系方式）</view>
+      <view class="mobile-way">
+        <view class="way-label">手机号码/邮箱</view>
+        <input class="input-style" bindinput="bindPhone"  placeholder="请输入您的手机号码/邮箱"/>
+      </view>
+      <view class="is-line"></view>
+      <view class="mobile-way">
+        <view class="way-label">微信号 / Q Q</view>
+        <input class="input-style" bindinput="bindQQ"  placeholder="请输入您的微信号/QQ"/>
+      </view>
+    </view>
+  </view>
+  <view class="submit">
+    <button size="default" bindtap="submit">保存</button>
+  </view>
+</view>

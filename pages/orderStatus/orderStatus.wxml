@@ -1,0 +1,32 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class="page-box">
+    <view class='title'>
+        <view wx:for="{{myOrderTab}}" wx:key="*this" class='titleSel' bindtap='titleClick' data-index="{{index}}" data-idx='{{item.status}}'>
+            <text class="{{index == currentIndex ? 'titleactive' : 'titleUnsel'}}">{{item.name}}</text>
+        </view>
+    </view>
+    <view class="page-content">
+        <!-- 内容布局 -->
+        <view class="swiper-content">
+            <!-- <scroll-view  style="height: 100%;"> -->
+            <view wx:for="{{sendList}}" wx:key="*this" class='recordItem clearfloat' data-sourceid="{{item.source_id}}" data-orderid="{{item.id}}" bindtap="goDetails">
+                <view class="item-top-box">
+                    <view class="top-box-time">{{item.created_time}}</view>
+                    <view class="top-box-status" style="{{item.status == 2?'color:rgba(51,51,51,1);' : item.status == 3? 'color:rgba(234,51,35,1);' : 'color:rgba(250, 141, 31, 1)'}}">{{item.status_label}}</view>
+                </view>
+                <view style="margin-top:38rpx;">
+                    <view class="content-image-level-box">
+                        <image class="image-header" src="{{item.avatarUrl}}"></image>
+                        <view class="content-item-name">{{item.name}}</view>
+                    </view>
+                    <view class="content-item-dsc"  wx:for="{{item.products}}">{{item.title}} +{{item.count}}</view>
+                    <view class="content-item-price">
+                        {{item.status_label}}
+                        <text style="{{item.status == 2?'color:rgba(51,51,51,1);' : 'color:rgba(234,51,35,1);'}}">￥{{item.total}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+</view>

@@ -1,0 +1,26 @@
+<!--发布-->
+<view class="container">
+  <view class="title">
+    快捷发布
+  </view>
+  <view class="btnGroup">
+    <form bindsubmit="chooseImg" report-submit="true" data-chooseType='true'  >
+      <button form-type="submit" role="button" aria-disabled="false">
+          <image src='../../images/source.png' />
+          <view>货源</view>
+      </button>
+    </form>
+    <form bindsubmit="chooseImg" report-submit="true" data-chooseType='false'  >
+      <button form-type="submit" role="button" aria-disabled="false">
+            <image src='../../images/buy.png' />
+          <view>求购</view>
+      </button>
+    </form>
+  </view>
+  <view class="close" bindtap="close">
+          <text class="iconfont icon-x"></text>
+  </view>
+  <image src="{{updatePath2}}circle01.png" class="circle01"></image>
+  <image src="{{updatePath2}}circle02.png" class="circle02"></image>
+  <image src="{{updatePath2}}circle03.png" class="circle03"></image>
+</view>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/index",
+    "goodsList":"/components/goodsList/index",
+    "searchPage":"/components/search-page/index"
+
+  }
+}

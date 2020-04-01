@@ -1,0 +1,51 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='container'  style="height:calc(100% - {{btnH}}rpx - {{navH}}rpx)">
+<scroll-view scroll-y>
+  <view class="order-express">
+    <view>是否需要邮寄</view>
+    <switch color="#FA8C1E" checked="{{need_mail}}" bindchange="switchChange"/>
+  </view>
+  <view class="order-addr">
+    <view bindtap='getAddr' class="addrBtn" wx:if="{{!is_show_adrr&&need_mail}}"><text>请填写地址</text><text class="iconfont icon-chevron-right"></text></view>
+     <view bindtap='getAddr' class="addrBtn" wx:if="{{!is_show_adrr&&!need_mail}}"><text>请填写联系人</text><text class="iconfont icon-chevron-right"></text></view>
+    <view bindtap="getAddr" class="addrInfo" wx:if="{{is_show_adrr&&need_mail}}">
+      <view><text class="iconfont icon-map-pin"></text></view>
+      <view><view class="userAndTel">收件人：{{name}}，{{mobile}}</view>
+            <view class="addr">{{address}} {{post_code}}</view></view>
+      <view><text class="iconfont icon-chevron-right"></text></view>
+    </view>
+     <view bindtap="getAddr" class="addrInfo contact" wx:if="{{is_show_adrr&&!need_mail}}">
+      <view><text class="iconfont icon-map-pin"></text></view>
+      <view><view class="userAndTel">联系人：{{name}}，{{mobile}}</view></view>
+      <view><text class="iconfont icon-chevron-right"></text></view>
+    </view>
+    
+  </view>
+ 
+  <view class="order-product">
+    <view class="title">已选商品</view>
+    <view class="productList">
+      <block wx:for="{{productList}}" wx:key="index">
+        <view class="subtitle">{{item.content.product_name}} {{item.content.satandards}}</view>
+        <view class="priceAndNum">
+          <text>¥{{item.price}}</text><text>x {{item.cart_num}}</text>
+        </view>
+      </block>
+      
+      <view class="totalPrice">
+        <text>合计</text><text class="red">¥ {{totalPrice}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+  
+  
+</view>
+<view class="order-button">
+      <view class="orderBtn">
+        <view bindtap="getPhone"><text class="iconfont icon-smile"></text> <text>与我联系</text></view>
+        <view bindtap="orderOnLine">在线预购</view>
+      </view>
+   
+  
+</view>

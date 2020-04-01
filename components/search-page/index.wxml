@@ -1,0 +1,14 @@
+<view class="history-report" bindtap="allClick">
+        <view class="history-title">
+            <view class="">历史记录</view>
+            <image class="clearStorage" bindtap="historyDel" src="{{updatePath}}images/clearStorage.png">
+                
+            </image>
+            <!-- <view  class="icon-trash-2"></view> -->
+        </view>
+        <view class="report-box">
+            <view wx:for="{{searchStorage}}" wx:key="id" class="report-item" data-value="{{item.value}}" catchtap="toSearchList">
+                {{item.value}}
+            </view>
+        </view>
+    </view>

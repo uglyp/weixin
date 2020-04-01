@@ -1,0 +1,174 @@
+<navbar parameter='{{parameter}}'></navbar>
+<!--产品-->
+<view class='container' style="height:calc(100% - {{btnH}}rpx)" >
+  <scroll-view scroll-y>
+    <productConSwiper imgUrls="{{imgUrls}}"></productConSwiper>
+  <view class="product-time {{status==1||status==2?'isend':''}}">
+    <view>
+       <text >{{source.publish_time}}</text>
+      <text>发布</text><text>|</text>
+      <text wx:if="{{status==0}}">距结束：</text>
+      <block wx:if="{{status==0}}">
+      <text class="h" wx:if="{{countDownDay!=''}}">{{countDownDay}}</text><text wx:if="{{countDownDay!=''}}">天</text>
+        <text class="h">{{countDownHour}}</text><text>:</text>
+      <text class="m">{{countDownMinute}}</text><text>:</text>
+      <text class="s">{{countDownSecond}}</text>
+      </block>
+      <block wx:if="{{status==1||status==2}}">
+        <text>活动已结束</text>
+      </block>
+      
+    </view>
+  </view>
+  <view class="product-user">
+    <view class="img">
+      <image src="{{source.avatarUrl}}"></image>
+    </view>
+    <view class="content">
+      <view class="name">{{source.nickName}}</view>
+      <view ><!--<text class="lightGray">成员</text><text>{{source.member}}</text>-->
+              <text class="lightGray">预购人数</text><text>{{source.pre_number}}</text></view>
+    </view>
+    <view class="btns">
+      <view class="favorite_{{is_favorite}}" bindtap="changeFavorite"><text style="background-image:url('{{bgImg}}') ;"></text></view>
+      <view bindtap="goPoster"><text style="background-image:url('{{bgImg}}') ;"></text></view>
+      <button open-type='share'><text style="background-image:url('{{bgImg}}') ;"></text></button>
+    </view>
+  </view>
+
+  <view class="product-main">
+    <view class="title">{{source.subject}}</view>
+    <view class="content">{{source.content}}</view>
+    <view class="list" wx:if="{{type==0&&productList.length>0}}">
+      <view wx:for="{{productList}}" wx:key="index">
+        <view class="subtitle">{{item.content.product_name}} {{item.content.standards}}</view>
+        <view class="number">
+          <text class="gray">库存：</text><text>{{item.stock}}</text><text class="lightGray">|</text>
+          <text class="red">已团{{item.sold}}</text>
+        </view>
+        <view class="price"><text class="red" >¥ {{item.price}}</text></view>
+        <view class='carnum' wx:if="{{status==0&item.stock>0}}">
+                 <view class="reduce {{item.numSub ? 'on' : ''}}" catchtap='subCart'data-id="{{item.id}}" data-index="{{index}}">-</view>
+                 <view class='num' wx:if="{{item.cart_num>0}}">{{item.cart_num}}</view>
+                 <view class="plus {{item.numAdd ? 'on' : ''}}" catchtap='addCart'data-id="{{item.id}}" data-index="{{index}}">+</view>
+        </view>
+      </view>
+    </view>
+    <view class="list" wx:if="{{(type==1&&productList[0].content.product_name!='')||(type==1&&productList[0].content.standards!='')}}">
+      <view wx:for="{{productList}}" wx:key="index">
+        <view class="subtitle">{{item.content.product_name}}</view>
+        <view class="subtitle">{{item.content.standards}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="product-tips red" wx:if="{{source.if_can_invoice==1}}">
+    温馨提示：商家可开具发票，请与商家联系开具发票
+  </view>
+
+  <view class="product-myorder"  wx:if='{{myOrderList.length>0&&type==0}}'>
+    <view class="subHead">
+      <view bindtap="togoindex"><image src="{{updatePath}}home.png" mode="widthFix"></image> <text>首页</text> </view>
+      <view bindtap="isshow"><image src="{{updatePath}}myorder.png" mode="widthFix"></image> <text>我的订单</text> <text class="iconfont {{isMyOrderShow?'icon-chevron-up':'icon-chevron-down'}}"></text></view>
+    </view>
+    <view class="list" wx:if="{{isMyOrderShow}}">
+      <view wx:for="{{myOrderList}}" wx:key="index">
+        <view class="index">{{item.showid}}</view>
+        <view class="content">
+          <view class="user">
+            <image src="{{item.avatarUrl}}"></image>
+            <text class="name">{{item.name}}</text>
+            <text class="time lightGray">{{item.created_time}}</text>
+          </view>
+          <view class="num">
+          <block wx:for="{{item.products}}" wx:key="index" >
+            <text> {{item.title}}</text><text>+{{item.count}},</text>
+          </block>
+          </view>
+          <view class="price">
+            <text>已支付</text> <text>¥ {{item.total}}</text>
+          </view>
+          <view wx:if="{{status==0}}">
+            <button class="status_{{item.status}}" bindtap="orderCancel" data-orderid="{{item.id}}" data-status="{{item.status}}" data-index="{{index}}">{{item.status==0||item.status==1?'申请取消订单':item.status_label}}</button>
+          </view>
+      </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="product-order" wx:if="{{type==0}}">
+    <view wx:for="{{orderList}}" wx:key="index">
+      <view class="index"></view>
+      <view class="content">
+        <view class="user">
+          <image src="{{item.avatarUrl}}"></image>
+          <text class="name">{{item.name}}</text>
+          <text class="time lightGray">{{item.created_time}}</text>
+        </view>
+        <view class="num">
+        <block wx:for="{{item.products}}" wx:key="index" >
+            <text> {{item.title}}</text><text>+{{item.count}},</text>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class="moreOrAll" wx:if="{{ismore&orderList.length>0}}" bindtap="getMore"><view>点击查看更多</view></view>
+    <view class="moreOrAll" wx:if="{{!ismore&orderList.length>0}}"><view>到底咯~~~</view></view>
+  </view>
+  </scroll-view>
+</view>
+
+<view class="product-button" wx:if="{{type==0}}">
+    <view class="mySelfBtn" wx:if="{{myself==1}}">
+      <view bindtap="orderStatus"><view><image src="{{updatePath}}myorder.png" mode="widthFix"></image></view> <view>订单状态</view> </view>
+      <view bindtap="clickme"> <view><image src="{{updatePath}}pan.png" mode="widthFix"></image></view><view>活动管理</view> </view>
+      <view bindtap="orderAdministration"> <view>{{total_cnt}}</view><view>订单管理</view> </view>
+    </view>
+
+    <block wx:if="{{status==0}}">
+      <button wx:if="{{allCartNum==0}}" bindtap="noneOfCartNum">在线预购</button>
+      <view class="orderBtn" wx:if="{{allCartNum>0}}">
+        <view bindtap="getPhone"><text class="iconfont icon-smile"></text> <text>与我联系</text> </view>
+        <view bindtap="orderOnLine">在线预购</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="orderBtn">
+        <view bindtap="getPhone"><text class="iconfont icon-smile"></text> <text>与我联系</text></view>
+        <view class="isend">活动已结束</view>
+      </view>
+    </block>
+</view>
+<view class="product-button" wx:if="{{type==1}}">
+<view class="mySelfBtn" wx:if="{{myself==1}}">
+    
+      <view bindtap="clickme"> <view><image src="{{updatePath}}pan.png" mode="widthFix"></image></view><view>活动管理</view> </view>
+    </view>
+    <block wx:if="{{status==0}}">
+      <button  bindtap="getPhone">联系买家</button>
+      </block>
+       <block wx:else>
+      <view class="orderBtn">
+        <view bindtap="getPhone"><text class="iconfont icon-smile"></text> <text>与我联系</text></view>
+        <view class="isend">活动已结束</view>
+      </view>
+    </block>
+</view>
+
+<!--屏幕背景变暗的背景  -->
+  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <!--弹出框  -->
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+    <view bindtap="modify">修改活动</view>
+    <view bindtap="editStatus" data-status="1">结束活动</view>
+    <view bindtap="editStatus" data-status="2">删除/隐藏活动</view>
+    <view bindtap="hideModal">取消</view>
+  </view>
+
+<!-- 海报展示 -->
+<view class='poster-pop' wx:if="{{posterImageStatus}}">
+<text class="iconfont icon-x-circle close" bindtap='posterImageClose' ></text>
+   <image src='{{posterImage}}'></image>
+   <view class='save-poster' bindtap='savePosterPath'>保存到手机</view>
+</view>
+<view class='mask' wx:if="{{posterImageStatus}}"></view>
+<canvas class="canvas" canvas-id='myCanvas' wx:if="{{canvasStatus}}"></canvas>

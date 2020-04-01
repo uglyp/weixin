@@ -1,0 +1,38 @@
+page{
+  --defaultGray: #333333;
+  --gray: #666666;
+  --lightGray: #999999;
+  --red: #FF1C1C;
+  --orange: #FA8C1E;
+  --brown:#7D581C;
+  --yellowGradation: linear-gradient(to right, #FA8C1E, #fc9c2e,#FCAC3D);
+ 
+  --grayLine:#E8E8E8;
+
+  --darkGrayBg:#E8E8E8;
+  --grayBg:#EEEEEE;
+  --lightGrayBg:#F9F9F9;
+  --orangeBg:#FFEFD5;
+  --lightOrangeBg:#FFF7EA;
+  
+
+}
+.red{
+  color: #FF1C1C;
+}
+.orange{
+  color: #FA8C1E
+}
+.gray{
+  color:#666666;
+}
+.lightGray{
+  color: #999999;
+}
+.defaultGray{
+  color: #333333;
+}
+.brown{
+  color: #7D581C;
+}
+

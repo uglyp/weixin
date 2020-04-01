@@ -1,0 +1,29 @@
+/**app.wxss**/
+@import '/font/iconfont.wxss';
+@import '/color/color.wxss';
+page{
+  height: 100%;
+  width: 100%;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  color:var(--defaultGray);
+} 
+.hide{
+  display: none!important;
+}
+.container button{
+  background: var(--yellowGradation);
+}
+.container button::after{
+  border:none;
+}
+.container button:not([size='mini']){
+  width:90%;
+}
+/*清除浮动代码*/
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.clearfloat{zoom:1}

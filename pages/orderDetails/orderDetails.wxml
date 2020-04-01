@@ -1,0 +1,96 @@
+<!-- pages/orderdetails/orderdetails.wxml -->
+<view class=""></view>
+<navbar parameter='{{parameter}}'></navbar>
+<view class='order-detail-page'>
+    <view class="detail-content">
+        <!-- <view class="detail-name">防晒霜</view> -->
+        <view class='recordItem clearfloat'>
+            <view class="item-top-box">
+                <view class="content-image-level-box">
+                    <image class="image-header" src="{{memberInfo.avatarUrl}}"></image>
+                    <view class="content-item-name">{{orderInfo.name}}</view>
+                    <view class="top-box-time">2020-03-11 12：30</view>
+                </view>
+                <view class="content-item-dsc" wx:for="{{orderInfo.products}}">
+                    {{item.title}}  +{{item.count}}
+                </view>
+            </view>
+            <view>
+                <view class="content-item-dsc">￥130.00</view>
+                <view class="content-item-price">
+                    <view class="item-label">联系人：</view>
+                    <view style="color:rgba(131, 96, 41, 1);font-size:28rpx">
+                        {{orderInfo.name}}
+                    </view>
+                </view>
+                <view class="content-item-price">
+                    <view class="item-label">联系电话：</view>
+                    <view style="color:rgba(131, 96, 41, 1);font-size:28rpx">
+                        {{orderInfo.mobile}}
+                    </view>
+                </view>
+                <view class="content-item-price">
+                    <view class="item-label">联系地址：</view>
+                    <view style="color:rgba(131, 96, 41, 1);font-size:28rpx">
+                         {{orderInfo.address}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="detail-bottom">
+        <view class='list-msg'>
+            <!-- 下拉框 -->
+            <view class='list-msg2' bindtap='bindShowMsg'>
+                <view class="ziti-name">订单状态：</view>
+                <view class="ziti-right">
+                    <view class="ziti-babel">{{orderStatus}}</view>
+                    <image style='height:28rpx;width:16rpx;' src='{{imgHeader}}rightarrows.png'></image>
+                </view>
+                <!-- 下拉需要显示的列表 -->
+                <view class="select_box" wx:if="{{selectWay}}">
+                    <view class="select_one" catchtap="mySelect" data-name="预购中" data-status="0">
+                        预购中
+                    </view>
+                    <view class="select_one" catchtap="mySelect" data-name="预购成功" data-status="1">
+                        预购成功
+                    </view>
+                    <view class="select_one" catchtap="mySelect" data-name="取消" data-status="2">
+                        取消
+                    </view>
+                    <view class="select_one" catchtap="mySelect" data-name="已发货" data-status="3">
+                        已发货
+                    </view>
+                </view>
+            </view>
+            <view class="getaway-time">
+                <view class='list-msg2' bindtap='bindShowTime'>
+                    <view style="line-height:84rpx;color:rgba(51,51,51,1);font-size:26rpx;margin-left:29rpx">
+                        支付状态:
+                    </view>
+                    <view class="ziti-right">
+                        <view class="ziti-babel">{{payStatus}}</view>
+                        <image style='height:28rpx;width:16rpx;' src='{{imgHeader}}rightarrows.png'></image>
+                    </view>
+                    <!-- 下拉提货时间列表 -->
+                    <!-- <view class="select-time-box" wx:if="{{selectTime}}">
+                        <view class="select_one" catchtap="mySelectTime" data-name="门店自提">
+                            门店自提
+                        </view>
+                        <view class="select_one" catchtap="mySelectTime" data-name="顺丰快递">
+                            顺丰快递
+                        </view>
+                        <view class="select_one" catchtap="mySelectTime" data-name="顺丰到付">
+                            顺丰到付
+                        </view>
+                    </view> -->
+                </view>
+            </view>
+            <view class="remind-box">
+                <input class="remind-style" bindinput="getInputValue" placeholder-style="color:rgba(153, 153, 153, 1);font-size:30rpx;" value="{{orderInfo.remarks}}" />
+                <view class="remind-btn" bindtap="sendRemarks">备注</view>
+            </view>
+        </view>
+    </view>
+    <view class="detail-submit" bindtap="sendRemarks">提交</view>
+</view>

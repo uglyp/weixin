@@ -1,0 +1,136 @@
+.container scroll-view{
+  height: 100%;
+}
+.order-express{
+  padding: 20rpx 30rpx;
+  display: flex;
+}
+.order-express>view{
+  flex: 1;
+  text-align: left;
+  font-size: 30rpx;
+  padding-top: 10rpx;
+}
+.order-express>switch{
+  zoom: 0.8;
+}
+.order-addr{
+  padding: 0 20rpx;
+}
+.order-addr .addrBtn{
+  display: flex;
+  padding:  0 20rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: var(--lightGrayBg);
+}
+.order-addr .addrBtn text{
+  font-size: 28rpx;
+}
+.order-addr .addrBtn text:first-child{
+  color: #888;
+  flex: 1;
+}
+.order-addr .addrInfo{
+  display: flex;
+  padding: 20rpx;
+  background: var(--lightGrayBg);
+}
+.order-addr .addrInfo>view:first-child{
+  color: var(--orange);
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 20rpx 0 10rpx;
+
+}
+.order-addr .addrInfo>view:nth-child(2){
+  flex: 1;
+  font-size:30rpx; 
+}
+.order-addr .addrInfo>view:nth-child(2) .addr{
+  color: var(--gray);
+  font-size: 28rpx;
+}
+.order-addr .addrInfo>view:last-child{
+  
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-right: 10rpx;
+}
+.order-addr .addrInfo.contact>view:first-child,.order-addr .addrInfo.contact>view:last-child{
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.order-product{
+  
+  margin: 20rpx;
+  background: var(--lightGrayBg);
+  border-radius: 10rpx;
+}
+.order-product .title{
+  background: var(--lightGrayBg);
+  margin: 0 20rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid var(--grayBg);
+  
+}
+.order-product  .productList{
+  padding: 20rpx;
+  background: var(--lightGrayBg);
+  
+}
+.order-product  .productList .subtitle{
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.order-product  .productList .priceAndNum{
+  display: flex;
+  border-bottom: 1rpx solid var(--grayBg);
+  padding-bottom: 20rpx;
+}
+.order-product  .productList .priceAndNum>text{
+  font-size: 26rpx;
+}
+.order-product  .productList .priceAndNum>text:first-child{
+  flex: 1;
+  color: #888;
+}
+.order-product  .productList .totalPrice{
+  
+  text-align: right;
+  padding: 20rpx;
+  font-size: 26rpx;
+}
+
+.order-button .orderBtn{
+  display: flex;
+  padding: 0 5%;
+  height: 90rpx;
+}
+.order-button .orderBtn>view{
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.order-button .orderBtn>view:first-child{
+  background: #fff;
+  border:2rpx solid var(--orange);
+  flex: 1;
+  text-align: center;
+  font-size: 28rpx;
+  color: var(--orange);
+  border-radius: 10rpx 0 0 10rpx;
+  display: flex;
+  justify-content: center
+}
+.order-button .orderBtn>view:last-child{
+  background: var(--yellowGradation);
+  border:2rpx solid var(--orange);
+  flex: 2;
+  text-align: center;
+  font-size: 34rpx;
+  color:#fff;
+  border-radius: 0 10rpx 10rpx 0;
+}

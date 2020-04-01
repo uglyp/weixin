@@ -1,0 +1,6 @@
+/* pages/source/source.wxss */
+.page-box {
+    height: 100%;
+    box-sizing: border-box;
+
+}

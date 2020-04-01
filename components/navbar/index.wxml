@@ -1,0 +1,22 @@
+<view class='navbar {{parameter.class}} {{parameter.isFixed?"bgcolor":""}}' style='height:{{navH}}rpx'>
+   <view class='navbarH' style='height:{{navH}}rpx;'>
+   
+      <view class='navbarCon acea-row ' wx:if='{{parameter.navbar==0}}'>
+        <view class='logo'><image src='{{logoUrl}}' mode='widthFix'></image></view>
+        <view class='iconfont icon-chevron-left {{parameter.color==true?"on":""}}' wx:if='{{parameter.return==1}}' bindtap='return'></view>
+        <view class='search acea-row row-middle' wx:if='{{parameter.search==1}}' bindtap='setGoodsSearch'><text class='iconfont icon-search'></text></view>
+        
+      </view>
+      
+      <view class='navbarCon acea-row row-center-wrapper' wx:if='{{parameter.navbar==1}}'>
+         <view class='name {{parameter.color==true?"on":""}} line1 dutyName'>{{parameter.title}}</view>
+         <view class='iconfont icon-chevron-left {{parameter.color==true?"on":""}}' wx:if='{{parameter.return==1}}' bindtap='return'></view>
+      </view>
+
+      <view class='navbarCon acea-row row-center-wrapper' wx:if='{{parameter.navbar==2}}'>
+         
+         <view class='iconfont icon-chevron-left {{parameter.color==true?"on":""}}' wx:if='{{parameter.return==1}}' bindtap='return'></view>
+      </view>
+   </view>
+</view>
+<view style='height:{{navH}}rpx' wx:if="{{parameter.isFixed}}"></view>

@@ -1,0 +1,77 @@
+.container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.circle01,.circle02,.circle03{
+  position: absolute;
+}
+.circle01{
+  width: 94rpx;
+  height: 86rpx;
+  right: 0;
+  top: 30%;
+}
+.circle02{
+  width: 90rpx;
+  height: 118rpx;
+  left: -10rpx;
+  bottom: 10%;
+}
+.circle03{
+  width: 78rpx;
+  height: 80rpx;
+  right: -10rpx;
+  bottom: 0;
+}
+.title{
+  margin-top: 50%;
+  width: 100%;
+  text-align: center;
+  color: var(--defaultGray);
+  font-size: 60rpx;
+}
+.btnGroup{
+  width: 100%;
+  display: flex;
+  margin-top: 300rpx;
+}
+.btnGroup form{
+  width: 50%;
+}
+.btnGroup button{
+  text-align: center;
+  background: none;
+  width: 100%;
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: #333;
+  padding: 0;
+}
+.btnGroup button:not([size='mini']) {
+  width: 100%;
+}
+.btnGroup button image{
+  width: 168rpx;
+  height: 160rpx;
+}
+.btnGroup button view{
+  font-size: 32rpx;
+  width: 100%;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.btnGroup button::after{
+  border: none;
+}
+.close{
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 5%;
+
+}
+.close>text{
+  font-size: 40rpx;
+}

@@ -1,0 +1,139 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class="page-box">
+    <view class="admin-top">
+        <view class="admin-name" hover-class="none" hover-stop-propagation="false">董小姐代购</view>
+        <view class="admin-flex">
+            <view class="admin-num">总订单{{total_cnt}}； 总金额￥{{total_mon}}</view>
+            <!-- <view class="admin-btn" bindtap="sendNotification">发送通知</view> -->
+        </view>
+    </view>
+    <view class="page-content">
+        <!-- 内容布局 -->
+        <view class="swiper-content">
+            <!-- <scroll-view  style="height: 100%;"> -->
+            <view wx:for="{{sendList}}" wx:key="*this" class='recordItem clearfloat' data-sourceid="{{item.source_id}}" data-orderid="{{item.id}}" bindtap="goDetails">
+                <view class="item-top-box">
+                    <view class="content-image-level-box">
+                        <image class="image-header" src="{{item.avatarUrl}}"></image>
+                        <view class="content-item-name">{{item.nickName}}</view>
+                        <view class="top-box-time">{{item.created_time}}</view>
+                    </view>
+                    <view class="content-item-dsc" wx:for="{{item.products}}" wx:key="{{index}}">{{item.title}} +{{item.count}}</view>
+                </view>
+                <view style="margin-top:40rpx;">
+                    <view class="content-item-price">
+                          联系人：
+                        <text decode="{{true}}" space="{{true}}" style="color:#333333;font-size:28rpx">&emsp;{{item.name}}</text>
+                    </view>
+                    <view class="content-item-price">
+                        联系电话：
+                        <text style="color:#333333;font-size:28rpx">{{item.mobile}}</text>
+                    </view>
+                    <view class="content-item-price" style="display:flex">
+                        <view class="" style="width:170rpx">
+                            联系地址：
+                        </view>
+                        <text style="color:#333333;font-size:28rpx">{{item.address}}</text>
+                    </view>
+                    <view class="content-item-price" style="color:#FF0000">
+                        ￥{{item.total}}
+                        <text decode="{{true}}" space="{{true}}"  style="color:#333333;font-size:28rpx">&emsp;{{item.status_label}}</text>
+                    </view>
+                </view>
+                <view class="triangle"></view>
+            </view>
+        </view>
+    </view>
+    <view class="dialog" wx:if="{{showNotification}}">
+        <view class="dialog-content">
+            <view class="content-info-remainder">
+            <view class="tab-box">
+                <view class="{{checkedService?'chamfer1active':'chamfer1'}}" bindtap="service">
+                    服务通知
+                </view>
+                <view class="{{checkedChart?'chamfer2active':'chamfer2'}}" bindtap="chat">
+                    短信通知
+                </view>
+            </view>
+            <view class="dialog-info" wx:if="{{checkedService}}">
+                <view class='list-msg'>
+                    <!-- 下拉框 -->
+                    <view class='list-msg2' bindtap='bindShowMsg'>
+                        <view class="ziti-name">{{tihuoWay}}</view>
+                        <view class="ziti-right">
+                            <view class="ziti-babel">2个未签收顾客</view>
+                            <image style='height:28rpx;width:16rpx;' src='../../images/rightarrows.png'></image>
+                        </view>
+                        <!-- 下拉需要显示的列表 -->
+                        <view class="select_box" wx:if="{{selectWay}}">
+                            <view class="select_one" catchtap="mySelect" data-name="门店自提">
+                                门店自提
+                            </view>
+                            <view class="select_one" catchtap="mySelect" data-name="顺丰快递">
+                                顺丰快递
+                            </view>
+                            <view class="select_one" catchtap="mySelect" data-name="顺丰到付">
+                                顺丰到付
+                            </view>
+                        </view>
+                    </view>
+                    <view class="getaway-time">
+                        <view style="line-height:84rpx;color:rgba(51,51,51,1);font-size:30rpx;">
+                            提货时间
+                        </view>
+                        <view class='list-msg2 select-time' style="margin-left:28rpx" bindtap='bindShowTime'>
+                            <view style="line-height:84rpx;color:rgba(51,51,51,1);font-size:26rpx;margin-left:29rpx">
+                                {{tihuoTime}}
+                            </view>
+                            <image bindtap='bindShowTime' style='height:28rpx;width:16rpx;' src='../../images/rightarrows.png'></image>
+                            <!-- 下拉提货时间列表 -->
+                            <view class="select-time-box" wx:if="{{selectTime}}">
+                                <view class="select_one" catchtap="mySelectTime" data-name="门店自提">
+                                    门店自提
+                                </view>
+                                <view class="select_one" catchtap="mySelectTime" data-name="顺丰快递">
+                                    顺丰快递
+                                </view>
+                                <view class="select_one" catchtap="mySelectTime" data-name="顺丰到付">
+                                    顺丰到付
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="good-remaider">温馨提示：</view>
+                    <view class="good-remaider">文本</view>
+                </view>
+            </view>
+            <view class="dialog-info" wx:if="{{checkedChart}}">
+                <view class='list-msg'>
+                    <view style="color:rgba(51,51,51,1);font-size:30rpx;">短信内容</view>
+                    <view class='chart-info-remaind'>您的商品已经到达提货地点，请尽快来取货</view>
+                    <!-- 下拉框 -->
+                    <view class='list-msg2' bindtap='bindShowChart'>
+                        <view class="ziti-name">{{duanxinInfo}}</view>
+                        <view class="ziti-right">
+                            <view class="ziti-babel">2个未签收顾客</view>
+                            <image style='height:28rpx;width:16rpx;' src='../../images/rightarrows.png'></image>
+                        </view>
+                        <!-- 下拉需要显示的列表 -->
+                        <view class="select_box" wx:if="{{chartWay}}">
+                            <view class="select_one" catchtap="myChart" data-name="门店自提">门店自提</view>
+                            <view class="select_one" catchtap="myChart" data-name="顺丰快递">顺丰快递</view>
+                            <view class="select_one" catchtap="myChart" data-name="顺丰到付">顺丰到付</view>
+                        </view>
+                    </view>
+                    <view class="ziti-babel" style="margin-top:31rpx">
+                        合计：
+                        <text style="color:rgba(229, 67, 52, 1)">￥0.00</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="btn-box">
+            <view class="btn-cancal" bindtap="hideDialog">取消</view>
+            <view class="btn-send">发送通知</view>
+        </view>
+        </view>
+    </view>
+    <load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+</view>

@@ -1,0 +1,5 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class="page-box">
+    <goodsList id="goodsList"  sendList="{{sendList}}"></goodsList>
+    <load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+</view>

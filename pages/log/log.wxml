@@ -1,0 +1,9 @@
+<navbar parameter='{{parameter}}' ></navbar>
+<view class='container'>
+  <view class='login_logo'>
+    <image src="../../images/logo.png" mode="widthFix" />
+  </view>
+  <view class="tip">*为了更好的提供服务，我们需要获得您的授权哦</view>
+  <button type='primary'  open-type="getUserInfo" bindgetuserinfo="userInfoHandler">接受</button>
+  <button type="default" hover-class="none" bindtap="refuse" class="refuse">拒绝</button>
+</view>

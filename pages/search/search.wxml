@@ -1,0 +1,18 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class="page-box">
+    <view class="page-top">
+        <input class="index-search" bindinput="getInputValue"  placeholder-class="iconfont icon-search" placeholder=" 搜索品牌名称" />
+        <label class="search-text" bindtap="toSearch">搜索</label>
+    </view>
+    <view class="history-report" wx:if="{{showHistory}}">
+        <view class="history-title">
+            <view class="">历史记录</view>
+            <view bindtap="historyDel" class="iconfont icon-trash-2"></view>
+        </view>
+        <view class="report-box">
+            <view wx:for="{{searchStorage}}" wx:key="id" class="report-item" data-value="{{item.value}}" bindtap="toSearchList">
+                {{item.value}}
+            </view>
+        </view>
+    </view>
+</view>

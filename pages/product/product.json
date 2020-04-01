@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "productConSwiper": "/components/productConSwiper/index",
+    "navbar": "/components/navbar/index"
+  }
+}

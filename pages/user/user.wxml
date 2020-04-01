@@ -1,0 +1,67 @@
+<!-- pages/user/user.wxml -->
+
+<navbar parameter='{{parameter}}'></navbar>
+<view class="user-page">
+  <image class="user-header-bg" src="{{imgHeader}}userbg.png"></image>
+  <view class="user-info-card">
+    <image class="user-header-log" src="{{logoSrc}}"></image>
+    <view class="user-username" wx:if="{{loginType}}">{{userName}}</view>
+
+    <navigator wx:else url="/pages/log/log?type=" hover-class="none">
+
+      <view class='login'>登录/注册</view>
+    </navigator>
+    <view class="my-tab-box">
+      <view class="" bindtap="toSkip" data-type="supplyofgoods">
+        <image style="width:54rpx;height:54rpx" class="" src="{{imgHeader}}supplyofgoods.png"></image>
+        <view class="mysupply-goods">我的货源</view>
+      </view>
+      <view class="" bindtap="toSkip" data-type="myorder">
+        <image style="width:54rpx;height:54rpx" class="" src="{{imgHeader}}myorder.png"></image>
+        <view class="mysupply-goods">我的订单</view>
+      </view>
+      <view class=""  bindtap="toSkip" data-type="asktobuy">
+        <image style="width:54rpx;height:54rpx" class="" src="{{imgHeader}}asktobuy.png"></image>
+        <view class="mysupply-goods">我的求购</view>
+      </view>
+    </view>
+  </view>
+  <view class="content-box">
+    <view class="content-item" bindtap="toSkip" data-type="authentication">
+      <view class="item-left">
+        <image style="width:42rpx;height:42rpx;margin-right:29rpx" class="" src="{{imgHeader}}authentication.png"></image>
+        <view class="item-label">实名认证</view>
+      </view>
+      <text class="iconfont icon-chevron-right lightGray"></text>
+    </view>
+    <view class="content-item" bindtap="toSkip" data-type="mycollect">
+      <view class="item-left">
+        <image style="width:42rpx;height:42rpx;margin-right:29rpx" class="" src="{{imgHeader}}mycollect.png"></image>
+        <view class="item-label">我的收藏</view>
+      </view>
+      <text class="iconfont icon-chevron-right lightGray"></text>
+    </view>
+    <view class="bg-line"></view>
+    <button open-type="contact" class="btn-contact" bindtap="toSkip" data-type="online">
+      <view class="item-left">
+        <image style="width:42rpx;height:42rpx;margin-right:29rpx" class="" src="{{imgHeader}}online.png"></image>
+        <view class="item-label">在线客服</view>
+      </view>
+      <text class="iconfont icon-chevron-right lightGray"></text>
+    </button>
+   <!-- <view class="content-item" bindtap="toSkip" data-type="helpcenter">
+      <view class="item-left">
+        <image style="width:42rpx;height:42rpx;margin-right:29rpx" class="" src="{{imgHeader}}helpcenter.png"></image>
+        <view class="item-label">帮助中心</view>
+      </view>
+     <text class="iconfont icon-chevron-right lightGray"></text>
+    </view>-->
+    <view class="content-item" bindtap="toSkip" data-type="feedback">
+      <view class="item-left">
+        <image style="width:42rpx;height:42rpx;margin-right:29rpx" class="" src="{{imgHeader}}feedback.png"></image>
+        <view class="item-label">意见反馈</view>
+      </view>
+      <text class="iconfont icon-chevron-right lightGray"></text>
+    </view>
+  </view>
+</view>
